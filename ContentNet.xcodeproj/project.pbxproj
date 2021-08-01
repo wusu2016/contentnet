@@ -203,6 +203,7 @@
 
 /* Begin PBXFileReference section */
 		6902ED082515DAED00BCDED6 /* iosLib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iosLib.framework; path = bin/iosLib.framework; sourceTree = "<group>"; };
+		691191C526B6D85B000477C5 /* contentnet.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; name = contentnet.entitlements; path = ContentNet/contentnet.entitlements; sourceTree = SOURCE_ROOT; };
 		691566C425356B8D004983F3 /* HOPIPRangeRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HOPIPRangeRule.swift; sourceTree = "<group>"; };
 		691CCF9F23F8240D007768DF /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
 		6924223D240D365000590536 /* PoolChoseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolChoseTableViewController.swift; sourceTree = "<group>"; };
@@ -249,7 +250,6 @@
 		69980C3623F78D3F00829B09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		69980C3823F78D3F00829B09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69980C3E23F792C400829B09 /* MarketListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketListTVC.swift; sourceTree = "<group>"; };
-		69980C4223F7944200829B09 /* pirate.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = pirate.entitlements; sourceTree = "<group>"; };
 		69980C5823F7B3CD00829B09 /* extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = extension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		69980C5A23F7B3CD00829B09 /* PacketTunnelProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacketTunnelProvider.swift; sourceTree = "<group>"; };
 		69980C5C23F7B3CD00829B09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -478,7 +478,6 @@
 				696A71F225146BEF004EA5DE /* account */,
 				696A71F125146BE5004EA5DE /* home */,
 				69E0BEBE240838CA00E0B982 /* common */,
-				69980C4223F7944200829B09 /* pirate.entitlements */,
 				69980C3823F78D3F00829B09 /* Info.plist */,
 				693E92D824A89A9D00149A75 /* InfoPlist.strings */,
 				693E92D224A8816200149A75 /* Localizable.strings */,
@@ -518,6 +517,7 @@
 		69E0BEBE240838CA00E0B982 /* common */ = {
 			isa = PBXGroup;
 			children = (
+				691191C526B6D85B000477C5 /* contentnet.entitlements */,
 				696A71EB25146725004EA5DE /* PasswordViewController.swift */,
 				696A71ED251467DA004EA5DE /* QRCodeShowViewController.swift */,
 				6940EC8F240A75460029F526 /* ScannerViewController.swift */,
@@ -921,7 +921,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Pirate/pirate.entitlements;
+				CODE_SIGN_ENTITLEMENTS = ContentNet/contentnet.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 16;
@@ -932,7 +932,7 @@
 					"$(PROJECT_DIR)/Carthage/Build",
 					"$(PROJECT_DIR)/bin",
 				);
-				INFOPLIST_FILE = Pirate/Info.plist;
+				INFOPLIST_FILE = ContentNet/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -952,7 +952,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Pirate/pirate.entitlements;
+				CODE_SIGN_ENTITLEMENTS = ContentNet/contentnet.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 16;
@@ -963,7 +963,7 @@
 					"$(PROJECT_DIR)/Carthage/Build",
 					"$(PROJECT_DIR)/bin",
 				);
-				INFOPLIST_FILE = Pirate/Info.plist;
+				INFOPLIST_FILE = ContentNet/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
