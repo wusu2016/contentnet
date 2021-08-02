@@ -152,7 +152,7 @@ class HomeVC: UIViewController {
                                "POOL_ADDR":pool as Any,
                                "USER_ADDR":Wallet.WInst.Address as Any,
                                "USER_SUB_ADDR":Wallet.WInst.SubAddress as Any,
-                               "GLOBAL_MODE":AppSetting.isGlobalModel,
+                               "ACCELERATE_MODE":AppSetting.isAccelerateModel,
                                "MINER_ADDR":miner as Any,
                                "MINER_IP":mIP as Any,
                                "MINER_PORT":mPort as Any]
@@ -191,15 +191,15 @@ class HomeVC: UIViewController {
         }
         
         @IBAction func changeModel(_ sender: UISegmentedControl) {
-                let old_model = AppSetting.isGlobalModel
+                let old_model = AppSetting.isAccelerateModel
                 
                 switch sender.selectedSegmentIndex{
                         case 0:
-                                AppSetting.isGlobalModel = false
+                                AppSetting.isAccelerateModel = false
                         case 1:
-                                AppSetting.isGlobalModel = true
+                                AppSetting.isAccelerateModel = true
                 default:
-                        AppSetting.isGlobalModel = false
+                        AppSetting.isAccelerateModel = false
                 }
                 
                 self.notifyModelToVPN(sender:sender, oldStatus:old_model)
@@ -289,9 +289,9 @@ class HomeVC: UIViewController {
                                 return
                         }
                         let param = JSON(rs)
-                        AppSetting.isGlobalModel = param["Global"].bool ?? false
-                        self.setModelStatus(sender: self.globalModelSeg, oldStatus: AppSetting.isGlobalModel)
-                        NSLog("=======>Curretn global model is [\(AppSetting.isGlobalModel)]")
+                        AppSetting.isAccelerateModel = param["Accelerate"].bool ?? false
+                        self.setModelStatus(sender: self.globalModelSeg, oldStatus: AppSetting.isAccelerateModel)
+                        NSLog("=======>Curretn model is [\(AppSetting.isAccelerateModel)]")
                 }
         }
         
@@ -302,7 +302,7 @@ class HomeVC: UIViewController {
                         session.status != .invalid else{
                                 return
                 }
-                guard let message = try? JSON(["Global": AppSetting.isGlobalModel]).rawData() else{
+                guard let message = try? JSON(["Accelerate": AppSetting.isAccelerateModel]).rawData() else{
                         return
                 }
                 do{

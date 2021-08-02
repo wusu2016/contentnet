@@ -21,7 +21,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
         var proxyServer: ProxyServer!
         let proxyServerPort :UInt16 = 41080
         let proxyServerAddress = "127.0.0.1";
-        var enablePacketProcessing = true
+        var enablePacketProcessing = false
         var interface: TUNInterface!
         
         override func startTunnel(options: [String : NSObject]?, completionHandler: @escaping (Error?) -> Void) {
@@ -44,7 +44,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
                         
                         let settings = try initSetting(minerID: ops["MINER_ADDR"] as! String)
                         
-                        HOPDomainsRule.ISGlobalMode = (ops["GLOBAL_MODE"] as? Bool == true)
+                        HOPDomainsRule.IsAccelerateMode = (ops["ACCELERATE_MODE"] as? Bool == true)
                 
                         self.setTunnelNetworkSettings(settings, completionHandler: {
                                 error in
@@ -124,7 +124,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
                 proxySettings.httpsServer = NEProxyServer.init(address: proxyServerAddress, port: Int(proxyServerPort))
                 proxySettings.excludeSimpleHostnames = true;
                 proxySettings.matchDomains = [""]
-                proxySettings.exceptionList = Utils.Exclusives
+//                proxySettings.exceptionList = Utils.Exclusives
 //                NSLog("--------->exclude->\(proxySettings.exceptionList!)")
                 if enablePacketProcessing {
                         let DNSSettings = NEDNSSettings(servers: ["198.18.0.1"])
@@ -143,14 +143,14 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
                 
                 let hopRule = HOPDomainsRule(adapterFactory: hopAdapterFactory, urls: Utils.Domains)
                 
-                var ipStrings:[String] = []
-                ipStrings.append(contentsOf: Utils.IPRange["line"] as! [String])
-                ipStrings.append(contentsOf: Utils.IPRange["tel"] as! [String])
-                ipStrings.append(contentsOf: Utils.IPRange["whatsapp"] as! [String])
-                ipStrings.append(contentsOf: Utils.IPRange["snap"] as! [String])
-                ipStrings.append(contentsOf: Utils.IPRange["netfix"] as! [String])
+                let ipStrings:[String] = []
+//                ipStrings.append(contentsOf: Utils.IPRange["line"] as! [String])
+//                ipStrings.append(contentsOf: Utils.IPRange["tel"] as! [String])
+//                ipStrings.append(contentsOf: Utils.IPRange["whatsapp"] as! [String])
+//                ipStrings.append(contentsOf: Utils.IPRange["snap"] as! [String])
+//                ipStrings.append(contentsOf: Utils.IPRange["netfix"] as! [String])
+                
                 let ipRange = try HOPIPRangeRule(adapterFactory: hopAdapterFactory, ranges: ipStrings)
-//                NSLog("--------->\(ipStrings)")
                 RuleManager.currentManager = RuleManager(fromRules: [hopRule, ipRange], appendDirect: true)
                 return networkSettings
         }
@@ -168,17 +168,17 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
                 }
                 let param = JSON(messageData)
                 
-                let is_global = param["Global"].bool
+                let is_accelerate = param["Accelerate"].bool
                 let gt_status = param["GetModel"].bool
-                if is_global != nil{
-                        HOPDomainsRule.ISGlobalMode = is_global!
-                        NSLog("--------->Global model changed...\(HOPDomainsRule.ISGlobalMode)...")
+                if is_accelerate != nil{
+                        HOPDomainsRule.IsAccelerateMode = is_accelerate!
+                        NSLog("--------->Model changed...\(HOPDomainsRule.IsAccelerateMode)...")
                 }
                 if gt_status != nil{
-                        guard let data = try? JSON(["Global": HOPDomainsRule.ISGlobalMode]).rawData() else{
+                        guard let data = try? JSON(["Accelerate": HOPDomainsRule.IsAccelerateMode]).rawData() else{
                                 return
                         }
-                        NSLog("--------->App is querying golbal model [\(HOPDomainsRule.ISGlobalMode)]")
+                        NSLog("--------->App is querying golbal model [\(HOPDomainsRule.IsAccelerateMode)]")
                         handler(data)
                 }
         }

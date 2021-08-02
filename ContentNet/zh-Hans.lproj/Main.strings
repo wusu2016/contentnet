@@ -127,7 +127,7 @@
 "Ujt-ke-wwC.text" = "4000";
 
 /* Class = "UILabel"; text = "智能"; ObjectID = "V4c-oh-Gw7"; */
-"V4c-oh-Gw7.text" = "智能";
+"V4c-oh-Gw7.text" = "挖矿模式";
 
 /* Class = "UIBarButtonItem"; title = "我的矿池"; ObjectID = "VKx-xL-JhS"; */
 "VKx-xL-JhS.title" = "我的矿池";
@@ -169,7 +169,7 @@
 "beF-GI-4Lk.text" = "Label";
 
 /* Class = "UILabel"; text = "全局"; ObjectID = "c8X-E2-Lzq"; */
-"c8X-E2-Lzq.text" = "全局";
+"c8X-E2-Lzq.text" = "加速模式";
 
 /* Class = "UILabel"; text = "Apply Eth"; ObjectID = "cKl-Rf-emf"; */
 "cKl-Rf-emf.text" = "Apply Eth";
