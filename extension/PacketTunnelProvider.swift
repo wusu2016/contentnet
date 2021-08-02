@@ -141,8 +141,8 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
                         throw HopError.minerErr("--------->Initial miner data failed")
                 }
                 
-                let hopRule = HOPDomainsRule(adapterFactory: hopAdapterFactory, urls: Utils.Domains)
-                
+//                let hopRule = HOPDomainsRule(adapterFactory: hopAdapterFactory, urls: Utils.Domains)
+                let hopRule = HOPDomainsRule(adapterFactory: hopAdapterFactory, urls: [:])
                 let ipStrings:[String] = []
 //                ipStrings.append(contentsOf: Utils.IPRange["line"] as! [String])
 //                ipStrings.append(contentsOf: Utils.IPRange["tel"] as! [String])
@@ -163,22 +163,23 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
 
         override func handleAppMessage(_ messageData: Data, completionHandler: ((Data?) -> Void)?) {
                 NSLog("--------->Handle App Message......")
-                guard let handler = completionHandler else{
-                        return
-                }
-                let param = JSON(messageData)
                 
+                let param = JSON(messageData)
                 let is_accelerate = param["Accelerate"].bool
-                let gt_status = param["GetModel"].bool
                 if is_accelerate != nil{
                         HOPDomainsRule.IsAccelerateMode = is_accelerate!
                         NSLog("--------->Model changed...\(HOPDomainsRule.IsAccelerateMode)...")
                 }
+                
+                let gt_status = param["GetModel"].bool
                 if gt_status != nil{
                         guard let data = try? JSON(["Accelerate": HOPDomainsRule.IsAccelerateMode]).rawData() else{
                                 return
                         }
                         NSLog("--------->App is querying golbal model [\(HOPDomainsRule.IsAccelerateMode)]")
+                        guard let handler = completionHandler else{
+                                return
+                        }
                         handler(data)
                 }
         }
