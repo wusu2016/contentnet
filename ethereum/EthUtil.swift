@@ -23,7 +23,7 @@ public final class EthUtil :NSObject{
         public func initEth(testNet:Bool? = true) throws{
                 
                 if testNet == nil || testNet! == true{
-                        self.web3 = Web3.InfuraRopstenWeb3(accessToken: HopConstants.DefaultInfruaToken)
+                        self.web3 = Web3.InfuraRinkebyWeb3(accessToken: HopConstants.DefaultInfruaToken)
                 }else{
                         self.web3 = Web3.InfuraMainnetWeb3(accessToken: HopConstants.DefaultInfruaToken)
                 }
