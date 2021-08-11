@@ -18,7 +18,7 @@ public struct ScryptParam {
 
 public struct HopConstants {
         static public let EthScanUrl = "https://etherscan.io/tx/"
-        static public let DefaultDnsIP = "167.179.75.39"//"198.13.44.159"
+        static public let DefaultDnsIP = "119.120.92.235"//"198.13.44.159"
         static public let DefaultBasPort = 8853
         static public let ReceiptSyncPort = 42021
         static public let TxReceivePort = 42020
