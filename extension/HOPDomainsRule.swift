@@ -17,7 +17,7 @@ class HOPDomainsRule: AllRule {
         public let KEY_COMPLETE = "complete"
         public let KEY_KEYWORD = "keyword"
         
-        public static var IsAccelerateMode = false
+        public static var ISGlobalMode = true
         
         public enum MatchCriterion {
                case regex(NSRegularExpression), prefix(String), suffix(String), keyword(String), complete(String)
@@ -110,8 +110,8 @@ class HOPDomainsRule: AllRule {
         }
         
         override open func match(_ session: ConnectSession) -> AdapterFactory? {
-                if HOPDomainsRule.IsAccelerateMode {
-                        NSLog("--------->[current is accelerate mode]")
+                if HOPDomainsRule.ISGlobalMode {
+                        NSLog("--------->[Domain]global:[\(session.host):\(session.port)]")
                         return adapterFactory
                 }
                 if matchDomain(session.host) {
