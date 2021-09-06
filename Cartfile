@@ -1,6 +1,34 @@
-github "hyperorchidlab/NEKit"
-github "hyperorchidlab/web3swift"
-github "hyperorchidlab/Curve25519"
-github "jdg/MBProgressHUD"
-github "swiftsocket/SwiftSocket"
-github "SwiftyJSON/SwiftyJSON" ~> 4.0
+#github "hyperorchidlab/NEKit"
+#git "https://github.com/matter-labs/web3swift" "master"
+#git "https://github.com/skywinder/web3swift" "master"
+#github "skywinder/web3swift" "master" #用此
+#github "hyperorchidlab/web3swift" "master"
+
+
+#github "BANKEX/web3swift" ~> 2.1
+#github "hyperorchidlab/Curve25519"
+#github "jdg/MBProgressHUD"
+#github "swiftsocket/SwiftSocket"
+#github "SwiftyJSON/SwiftyJSON" ~> 4.0
+#github "zhuhaow/tun2socks.git"
+
+#github "soffes/CommonCrypto"  #两个可以的
+#git "https://github.com/zhuhaow/NEKit" "master" #两个可以的
+
+#github "attaswift/BigInt" ~> 5.0
+#github "attaswift/SipHash" ~> 1.2.2
+#github "daltoniam/Starscream" ~> 3.1.0
+#github "krzyzanowskim/CryptoSwift" ~> 1.0.0
+#github "mxcl/PromiseKit" ~> 6.8.4
+
+#github "matter-labs/web3swift"
+#github "skywinder/web3swift" "master"
+#github "https://github.com/skywinder/web3swift" == 2.1.6
+#github "vaporamm/web3swift" "master"
+#github "metrowallet/web3swift"
+
+#github  "swiftsocket/SwiftSocket"
+#github "mxcl/PromiseKit"
+github "veerChauhan/web3swift"
+#github "skywinder/web3swift" "master"
+
